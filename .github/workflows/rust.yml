@@ -13,7 +13,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [windows, macos, ubuntu]
+        os: [macos, ubuntu]
     runs-on: ${{ matrix.os }}-latest
 
     steps:
@@ -23,8 +23,20 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v4.3.4
       with:
+        name: cv-downloader-${{ matrix.os }}
+        path: ./target/release/cv_downloader
+        retention-days: 30
+
+  build_on_windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build
+      run: cargo build --verbose --release
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4.3.4
+      with:
         name: cv-downloader
         path: |
-          ./target/release/cv_downloader
           ./target/release/cv_downloader.exe
         retention-days: 90
