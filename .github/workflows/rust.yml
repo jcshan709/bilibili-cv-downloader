@@ -1,0 +1,30 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  strategy:
+    matrix:
+      os: [windows, macos, ubuntu]
+  build:
+    runs-on: ${{ matrix.os }}-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build
+      run: cargo build --verbose --release
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4.3.4
+      with:
+        name: cv-downloader
+        path: |
+          ./target/release/cv-downloader
+          ./target/release/cv-downloader.exe
+        retention-days: 90
