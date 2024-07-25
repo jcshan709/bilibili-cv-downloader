@@ -25,6 +25,6 @@ jobs:
       with:
         name: cv-downloader
         path: |
-          ./target/release/cv-downloader
-          ./target/release/cv-downloader.exe
+          ./target/release/cv_downloader
+          ./target/release/cv_downloader.exe
         retention-days: 90
