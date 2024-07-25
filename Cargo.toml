@@ -9,3 +9,6 @@ regex = "1.10.5"
 reqwest = "0.12.5"
 scraper = "0.19.1"
 tokio = { version = "1.39.1", features = ["fs", "macros", "rt-multi-thread"] }
+
+[build-dependencies]
+embed-resource = "2.4.3"
