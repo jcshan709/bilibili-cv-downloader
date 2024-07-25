@@ -1,8 +1,8 @@
-use std::{error::Error as StdError, fmt::Display, future::Future, io::{stdin, Write}, path::PathBuf, pin, time::Duration};
+use std::{io::stdin, path::PathBuf};
 use regex::{self, Regex};
-use reqwest::{get, Request};
+use reqwest;
 use scraper::{Html, Selector};
-use tokio::{io::AsyncWriteExt, task::{self, JoinHandle}};
+use tokio::io::AsyncWriteExt;
 
 enum LinkType {
     Link(String),
@@ -36,7 +36,7 @@ fn check(input: &str) -> LinkType {
 
 
 async fn fetch(url: String) -> anyhow::Result<()> {
-    let dir = match tokio::fs::read_dir(PathBuf::from("cv-images")).await {
+    let _dir = match tokio::fs::read_dir(PathBuf::from("cv-images")).await {
         Ok(r) => r,
         Err(_) => {
             tokio::fs::create_dir(PathBuf::from("cv-images")).await?;

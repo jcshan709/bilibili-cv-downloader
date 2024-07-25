@@ -25,7 +25,7 @@ jobs:
       with:
         name: cv-downloader-${{ matrix.os }}
         path: ./target/release/cv_downloader
-        retention-days: 30
+        retention-days: 90
 
   build_on_windows:
     runs-on: windows-latest
