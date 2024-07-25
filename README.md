@@ -5,7 +5,7 @@ B站专栏图片批量下载器
 
 ### 下载
 Windows: 请到 [Release](https://github.com/jcshan709/bilibili-cv-downloader/releases) 页面下载程序（经过自签名，推荐）  
-最新构建/Ubuntu/MacOS: 在 [Actions] 里下载自动构建的最新版（90天保存时间）  
+最新构建/Ubuntu/MacOS: 在 [Actions](https://github.com/jcshan709/bilibili-cv-downloader/actions) 里下载自动构建的最新版（90天保存时间）  
 其他情况请自行构建
 
 ### 食用方法 
