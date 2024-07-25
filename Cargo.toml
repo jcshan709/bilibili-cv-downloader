@@ -1,0 +1,11 @@
+[package]
+name = "cv_downloader"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.86"
+regex = "1.10.5"
+reqwest = "0.12.5"
+scraper = "0.19.1"
+tokio = { version = "1.39.1", features = ["fs", "macros", "rt-multi-thread"] }
